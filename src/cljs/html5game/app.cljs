@@ -14,7 +14,6 @@
 ;;;; The order of function is somewhat reversed, because cljs
 ;;;; does not hoist functions as in JavaScript.
 
-;;;; TODO: Explain how state is dealt with
 
 ;; ------------------- Create canvas and context
 (def canvas (.createElement js/document "canvas"))
@@ -170,7 +169,7 @@
 
 
 (defn fire-bullets [state] 
-  (if (> (- (.now js/Date) (:last-fire state)) 100)
+  (if (> (- (.now js/Date) (:last-fire state)) 200)
     (let [[px py] (get-in state [:player :pos])
           [sx sy] (get-in state [:player :sprite :size])
           bx (+ px (/ sx 2))
@@ -179,7 +178,11 @@
       (-> state 
           (update :bullets conj 
                   {:pos [bx by] :dir "forward" 
-                   :sprite (make-sprite "img/sprites.png" [0 39] [18 8] bullet-speed)})
+                   :sprite (make-sprite "img/sprites.png" [0 39] [18 8] bullet-speed)}
+                  {:pos [bx by] :dir "up" 
+                   :sprite (make-sprite "img/sprites.png" [0 50] [9 5] bullet-speed)}
+                  {:pos [bx by] :dir "down" 
+                   :sprite (make-sprite "img/sprites.png" [0 60] [9 5] bullet-speed)})
           (assoc :last-fire (.now js/Date)))) 
     state))
 
@@ -372,8 +375,9 @@
     (reset! last-time (. js/Date now))
     (main-loop state)))
 
-
-(defn init []
+(defn init
+  "loads image resources before calling setup"
+  []
   (resources/load ["img/sprites.png" "img/terrain.png"])
   (resources/on-ready setup))
 
