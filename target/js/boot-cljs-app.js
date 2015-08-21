@@ -1,0 +1,18 @@
+goog.addDependency("base.js", ['goog'], []);
+goog.addDependency("../cljs/core.js", ['cljs.core'], ['goog.string', 'goog.object', 'goog.string.StringBuffer', 'goog.array']);
+goog.addDependency("../clojure/browser/dom.js", ['clojure.browser.dom'], ['goog.dom', 'cljs.core', 'goog.object']);
+goog.addDependency("../html5game/resources.js", ['html5game.resources'], ['cljs.core', 'clojure.browser.dom']);
+goog.addDependency("../cljs/core/match.js", ['cljs.core.match'], ['cljs.core']);
+goog.addDependency("../clojure/browser/event.js", ['clojure.browser.event'], ['cljs.core', 'goog.events.EventTarget', 'goog.events.EventType', 'goog.events']);
+goog.addDependency("../html5game/app.js", ['html5game.app'], ['cljs.core', 'clojure.browser.dom', 'html5game.resources', 'cljs.core.match', 'clojure.browser.event']);
+goog.addDependency("../clojure/string.js", ['clojure.string'], ['goog.string', 'cljs.core', 'goog.string.StringBuffer']);
+goog.addDependency("../adzerk/boot_reload/reload.js", ['adzerk.boot_reload.reload'], ['goog.net.jsloader', 'goog.Uri', 'cljs.core', 'goog.async.DeferredList', 'clojure.string']);
+goog.addDependency("../clojure/browser/net.js", ['clojure.browser.net'], ['goog.net.xpc.CfgFields', 'goog.net.XhrIo', 'goog.json', 'goog.Uri', 'cljs.core', 'goog.net.EventType', 'goog.net.xpc.CrossPageChannel', 'clojure.browser.event']);
+goog.addDependency("../adzerk/boot_reload/websocket.js", ['adzerk.boot_reload.websocket'], ['cljs.core', 'clojure.browser.net', 'goog.net.WebSocket', 'clojure.browser.event']);
+goog.addDependency("../cljs/reader.js", ['cljs.reader'], ['goog.string', 'cljs.core', 'goog.string.StringBuffer']);
+goog.addDependency("../adzerk/boot_reload/client.js", ['adzerk.boot_reload.client'], ['adzerk.boot_reload.reload', 'goog.net.jsloader', 'cljs.core', 'adzerk.boot_reload.websocket', 'clojure.browser.net', 'cljs.reader', 'clojure.browser.event']);
+goog.addDependency("../adzerk/boot_reload.js", ['adzerk.boot_reload'], ['html5game.app', 'cljs.core', 'adzerk.boot_reload.client']);
+goog.addDependency("../weasel/impls/websocket.js", ['weasel.impls.websocket'], ['cljs.core', 'clojure.browser.net', 'goog.net.WebSocket', 'clojure.browser.event']);
+goog.addDependency("../weasel/repl.js", ['weasel.repl'], ['weasel.impls.websocket', 'cljs.core', 'clojure.browser.net', 'cljs.reader', 'clojure.browser.event']);
+goog.addDependency("../adzerk/boot_cljs_repl.js", ['adzerk.boot_cljs_repl'], ['weasel.repl', 'cljs.core']);
+goog.addDependency("../boot/cljs/app.js", ['boot.cljs.app'], ['html5game.app', 'adzerk.boot_reload', 'cljs.core', 'adzerk.boot_cljs_repl']);
