@@ -11,29 +11,37 @@
 ;;;; http://jlongster.com/Making-Sprite-based-Games-with-Canvas
 ;;;; CODE: https://github.com/jlongster/canvas-game-bootstrap/blob/master/js/app.js
 ;;;; It has been translated into ClojureScript idioms. 
-;;;; The order of function is somewhat reversed, because cljs
-;;;; does not hoist functions as in JavaScript.
 
+;; ------------------- Create canvas and context --------------------- ;;
 
-;; ------------------- Create canvas and context
+;; As a lisp, the first element is the list is called as a function, with the remaining
+;; items passed in as arguments. The period preceding '.createElement' indicates that 
+;; the function is actually a method on a JavaScript object, and to expect that object
+;; as the second item in the list. This is how cljs does interop with JavaScript.
 (def canvas (.createElement js/document "canvas"))
+
+;; set! is how you set properties on JS objects
 (set! (.-width canvas) 512)
 (set! (.-height canvas) 480)
 
 (def ctx (.getContext canvas "2d"))
+
+;; The 'dom' namespace was imported at the top of the file. Here we call the append function
+;; with is part of that namespace, which is a wrapper over the Google Closure Library.
 (dom/append js/document.body canvas)
 
 (def player-speed  200)
 (def bullet-speed  500)
 (def enemy-speed  100)
+;; most of cljs' data structures are immutable, but an atom is for when you need mutability.
 (def last-time (atom 0))
 
-; Just declares that the function will be provided, so that it can be called 
-; in `initial-state` 
+; The followering declares that the function will be provided, so that it can be called 
+; in `initial-state`. Cljs does not hoist variables like JS does. 
 (declare make-sprite)
 
-;; The state of the game is kept in a map, which is passed to each function,
-;; rather than being separated out into many global variables.
+;; The state of the game is kept in a map, which is passed to each function,rather than 
+;; being scattered across into many global variables. Why? Global mutable state is not your friend.
 (defn initial-state [] 
   {:ctx ctx
    :player {:pos [0, 0]
@@ -51,10 +59,11 @@
    :pressed-keys {}})
 
 
-;; Creating a new sprite functionality is not in separate file as it is in JavaScript, 
-;; because it is not a distinct object. The update and render methods assigned to the 
-;; prototype is JS are named 'update-sprite' and 'render-sprite' and are found in the 
-;; respective update and render sections of this file.
+;; The code to create a new sprite is not in separate file as it was in the original
+;; JavaScript. In JS it is conventional to put Factory Functions for new ojects in a 
+;; separate file. I chose not to because it is just not that much code. The update and 
+;; render methods assigned to the prototype is JS are named 'update-sprite' and 
+;; 'render-sprite' and are found in the respective update and render sections of this file.
 
 (defn make-sprite 
   "Optional arguments are :frames, :dir, :once"
@@ -88,10 +97,9 @@
               (.fromCharCode js/String (.-keyCode event)))]
     (swap! state update :pressed-keys assoc key status)))
 
-; It is conventional to append an exclamation mark to the end of a function name
-; as an indication that it mutates some state and is not a pure function, such as
-; modifying the DOM.
-
+;; It is conventional to append an exclamation mark to the end of a function name
+;; as an indication that it mutates some state and is not a pure function, in this case 
+;; modifying the DOM.
 (defn attach-listeners! [state]
   (.addEventListener js/window.document "keydown" #(set-key! state % true) )
   (.addEventListener js/window.document "keyup" #(set-key! state % false) )
@@ -186,6 +194,7 @@
           (assoc :last-fire (.now js/Date)))) 
     state))
 
+;; It is also conventional to append a question mark to function names that return booleans
 (defn is-down? [state key]
   (true? (get-in state [:pressed-keys key])))
 

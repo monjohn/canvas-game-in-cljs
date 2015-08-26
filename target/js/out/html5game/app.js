@@ -51,21 +51,21 @@ return new cljs.core.PersistentArrayMap(null, 8, [new cljs.core.Keyword(null,"po
 var make_sprite = function (url,pos,size,speed,var_args){
 var opts = null;
 if (arguments.length > 4) {
-var G__24007__i = 0, G__24007__a = new Array(arguments.length -  4);
-while (G__24007__i < G__24007__a.length) {G__24007__a[G__24007__i] = arguments[G__24007__i + 4]; ++G__24007__i;}
-  opts = new cljs.core.IndexedSeq(G__24007__a,0);
+var G__24421__i = 0, G__24421__a = new Array(arguments.length -  4);
+while (G__24421__i < G__24421__a.length) {G__24421__a[G__24421__i] = arguments[G__24421__i + 4]; ++G__24421__i;}
+  opts = new cljs.core.IndexedSeq(G__24421__a,0);
 } 
 return make_sprite__delegate.call(this,url,pos,size,speed,opts);};
 make_sprite.cljs$lang$maxFixedArity = 4;
-make_sprite.cljs$lang$applyTo = (function (arglist__24008){
-var url = cljs.core.first(arglist__24008);
-arglist__24008 = cljs.core.next(arglist__24008);
-var pos = cljs.core.first(arglist__24008);
-arglist__24008 = cljs.core.next(arglist__24008);
-var size = cljs.core.first(arglist__24008);
-arglist__24008 = cljs.core.next(arglist__24008);
-var speed = cljs.core.first(arglist__24008);
-var opts = cljs.core.rest(arglist__24008);
+make_sprite.cljs$lang$applyTo = (function (arglist__24422){
+var url = cljs.core.first(arglist__24422);
+arglist__24422 = cljs.core.next(arglist__24422);
+var pos = cljs.core.first(arglist__24422);
+arglist__24422 = cljs.core.next(arglist__24422);
+var size = cljs.core.first(arglist__24422);
+arglist__24422 = cljs.core.next(arglist__24422);
+var speed = cljs.core.first(arglist__24422);
+var opts = cljs.core.rest(arglist__24422);
 return make_sprite__delegate(url,pos,size,speed,opts);
 });
 make_sprite.cljs$core$IFn$_invoke$arity$variadic = make_sprite__delegate;
@@ -73,8 +73,8 @@ return make_sprite;
 })()
 ;
 html5game.app.set_key_BANG_ = (function set_key_BANG_(state,event,status){
-var key = (function (){var G__24010 = event.keyCode;
-switch (G__24010) {
+var key = (function (){var G__24424 = event.keyCode;
+switch (G__24424) {
 case (32):
 return new cljs.core.Keyword(null,"space","space",348133475);
 
@@ -103,12 +103,12 @@ return String.fromCharCode(event.keyCode);
 return cljs.core.swap_BANG_.call(null,state,cljs.core.update,new cljs.core.Keyword(null,"pressed-keys","pressed-keys",1612079142),cljs.core.assoc,key,status);
 });
 html5game.app.attach_listeners_BANG_ = (function attach_listeners_BANG_(state){
-window.document.addEventListener("keydown",(function (p1__24012_SHARP_){
-return html5game.app.set_key_BANG_.call(null,state,p1__24012_SHARP_,true);
+window.document.addEventListener("keydown",(function (p1__24426_SHARP_){
+return html5game.app.set_key_BANG_.call(null,state,p1__24426_SHARP_,true);
 }));
 
-window.document.addEventListener("keyup",(function (p1__24013_SHARP_){
-return html5game.app.set_key_BANG_.call(null,state,p1__24013_SHARP_,false);
+window.document.addEventListener("keyup",(function (p1__24427_SHARP_){
+return html5game.app.set_key_BANG_.call(null,state,p1__24427_SHARP_,false);
 }));
 
 return window.document.addEventListener("blur",(function (){
@@ -142,21 +142,21 @@ return (0);
 });
 html5game.app.render_sprite_BANG_ = (function render_sprite_BANG_(sprite,ctx){
 var frame = html5game.app.compute_frame.call(null,sprite);
-var vec__24016 = new cljs.core.Keyword(null,"size","size",1098693007).cljs$core$IFn$_invoke$arity$1(sprite);
-var sx = cljs.core.nth.call(null,vec__24016,(0),null);
-var sy = cljs.core.nth.call(null,vec__24016,(1),null);
-var vec__24017 = new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(sprite);
-var px = cljs.core.nth.call(null,vec__24017,(0),null);
-var py = cljs.core.nth.call(null,vec__24017,(1),null);
+var vec__24430 = new cljs.core.Keyword(null,"size","size",1098693007).cljs$core$IFn$_invoke$arity$1(sprite);
+var sx = cljs.core.nth.call(null,vec__24430,(0),null);
+var sy = cljs.core.nth.call(null,vec__24430,(1),null);
+var vec__24431 = new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(sprite);
+var px = cljs.core.nth.call(null,vec__24431,(0),null);
+var py = cljs.core.nth.call(null,vec__24431,(1),null);
 var y = ((cljs.core._EQ_.call(null,"vertical",new cljs.core.Keyword(null,"dir","dir",1734754661).cljs$core$IFn$_invoke$arity$1(sprite)))?(py + (frame * sy)):py);
 var x = (px + (frame * sx));
 var img = html5game.resources.get_image.call(null,new cljs.core.Keyword(null,"url","url",276297046).cljs$core$IFn$_invoke$arity$1(sprite));
 return ctx.drawImage(img,x,y,sx,sy,(0),(0),sx,sy);
 });
 html5game.app.render_entity_BANG_ = (function render_entity_BANG_(e){
-var vec__24019 = new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(e);
-var x = cljs.core.nth.call(null,vec__24019,(0),null);
-var y = cljs.core.nth.call(null,vec__24019,(1),null);
+var vec__24433 = new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(e);
+var x = cljs.core.nth.call(null,vec__24433,(0),null);
+var y = cljs.core.nth.call(null,vec__24433,(1),null);
 html5game.app.ctx.save();
 
 html5game.app.ctx.translate(x,y);
@@ -166,51 +166,51 @@ html5game.app.render_sprite_BANG_.call(null,new cljs.core.Keyword(null,"sprite",
 return html5game.app.ctx.restore();
 });
 html5game.app.render_entities_BANG_ = (function render_entities_BANG_(entities){
-var seq__24024 = cljs.core.seq.call(null,entities);
-var chunk__24025 = null;
-var count__24026 = (0);
-var i__24027 = (0);
+var seq__24438 = cljs.core.seq.call(null,entities);
+var chunk__24439 = null;
+var count__24440 = (0);
+var i__24441 = (0);
 while(true){
-if((i__24027 < count__24026)){
-var e = cljs.core._nth.call(null,chunk__24025,i__24027);
+if((i__24441 < count__24440)){
+var e = cljs.core._nth.call(null,chunk__24439,i__24441);
 html5game.app.render_entity_BANG_.call(null,e);
 
-var G__24028 = seq__24024;
-var G__24029 = chunk__24025;
-var G__24030 = count__24026;
-var G__24031 = (i__24027 + (1));
-seq__24024 = G__24028;
-chunk__24025 = G__24029;
-count__24026 = G__24030;
-i__24027 = G__24031;
+var G__24442 = seq__24438;
+var G__24443 = chunk__24439;
+var G__24444 = count__24440;
+var G__24445 = (i__24441 + (1));
+seq__24438 = G__24442;
+chunk__24439 = G__24443;
+count__24440 = G__24444;
+i__24441 = G__24445;
 continue;
 } else {
-var temp__4425__auto__ = cljs.core.seq.call(null,seq__24024);
+var temp__4425__auto__ = cljs.core.seq.call(null,seq__24438);
 if(temp__4425__auto__){
-var seq__24024__$1 = temp__4425__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,seq__24024__$1)){
-var c__4551__auto__ = cljs.core.chunk_first.call(null,seq__24024__$1);
-var G__24032 = cljs.core.chunk_rest.call(null,seq__24024__$1);
-var G__24033 = c__4551__auto__;
-var G__24034 = cljs.core.count.call(null,c__4551__auto__);
-var G__24035 = (0);
-seq__24024 = G__24032;
-chunk__24025 = G__24033;
-count__24026 = G__24034;
-i__24027 = G__24035;
+var seq__24438__$1 = temp__4425__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,seq__24438__$1)){
+var c__4551__auto__ = cljs.core.chunk_first.call(null,seq__24438__$1);
+var G__24446 = cljs.core.chunk_rest.call(null,seq__24438__$1);
+var G__24447 = c__4551__auto__;
+var G__24448 = cljs.core.count.call(null,c__4551__auto__);
+var G__24449 = (0);
+seq__24438 = G__24446;
+chunk__24439 = G__24447;
+count__24440 = G__24448;
+i__24441 = G__24449;
 continue;
 } else {
-var e = cljs.core.first.call(null,seq__24024__$1);
+var e = cljs.core.first.call(null,seq__24438__$1);
 html5game.app.render_entity_BANG_.call(null,e);
 
-var G__24036 = cljs.core.next.call(null,seq__24024__$1);
-var G__24037 = null;
-var G__24038 = (0);
-var G__24039 = (0);
-seq__24024 = G__24036;
-chunk__24025 = G__24037;
-count__24026 = G__24038;
-i__24027 = G__24039;
+var G__24450 = cljs.core.next.call(null,seq__24438__$1);
+var G__24451 = null;
+var G__24452 = (0);
+var G__24453 = (0);
+seq__24438 = G__24450;
+chunk__24439 = G__24451;
+count__24440 = G__24452;
+i__24441 = G__24453;
 continue;
 }
 } else {
@@ -240,12 +240,12 @@ return html5game.app.render_entities_BANG_.call(null,new cljs.core.Keyword(null,
 });
 html5game.app.fire_bullets = (function fire_bullets(state){
 if(((Date.now() - new cljs.core.Keyword(null,"last-fire","last-fire",1643074014).cljs$core$IFn$_invoke$arity$1(state)) > (200))){
-var vec__24042 = cljs.core.get_in.call(null,state,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"player","player",-97687400),new cljs.core.Keyword(null,"pos","pos",-864607220)], null));
-var px = cljs.core.nth.call(null,vec__24042,(0),null);
-var py = cljs.core.nth.call(null,vec__24042,(1),null);
-var vec__24043 = cljs.core.get_in.call(null,state,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"player","player",-97687400),new cljs.core.Keyword(null,"sprite","sprite",172516848),new cljs.core.Keyword(null,"size","size",1098693007)], null));
-var sx = cljs.core.nth.call(null,vec__24043,(0),null);
-var sy = cljs.core.nth.call(null,vec__24043,(1),null);
+var vec__24456 = cljs.core.get_in.call(null,state,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"player","player",-97687400),new cljs.core.Keyword(null,"pos","pos",-864607220)], null));
+var px = cljs.core.nth.call(null,vec__24456,(0),null);
+var py = cljs.core.nth.call(null,vec__24456,(1),null);
+var vec__24457 = cljs.core.get_in.call(null,state,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"player","player",-97687400),new cljs.core.Keyword(null,"sprite","sprite",172516848),new cljs.core.Keyword(null,"size","size",1098693007)], null));
+var sx = cljs.core.nth.call(null,vec__24457,(0),null);
+var sy = cljs.core.nth.call(null,vec__24457,(1),null);
 var bx = (px + (sx / (2)));
 var by = (py + (sy / (2)));
 var now = Date.now();
@@ -261,34 +261,34 @@ return cljs.core.get_in.call(null,state,new cljs.core.PersistentVector(null, 2, 
 * Takes playter position and size of player sprite
 * returns the position of player within bounds
 */
-html5game.app.check_player_bounds = (function check_player_bounds(p__24046,p__24047){
-var vec__24064 = p__24046;
-var x = cljs.core.nth.call(null,vec__24064,(0),null);
-var y = cljs.core.nth.call(null,vec__24064,(1),null);
-var vec__24065 = p__24047;
-var ssx = cljs.core.nth.call(null,vec__24065,(0),null);
-var ssy = cljs.core.nth.call(null,vec__24065,(1),null);
+html5game.app.check_player_bounds = (function check_player_bounds(p__24460,p__24461){
+var vec__24478 = p__24460;
+var x = cljs.core.nth.call(null,vec__24478,(0),null);
+var y = cljs.core.nth.call(null,vec__24478,(1),null);
+var vec__24479 = p__24461;
+var ssx = cljs.core.nth.call(null,vec__24479,(0),null);
+var ssy = cljs.core.nth.call(null,vec__24479,(1),null);
 try{if((x < (0))){
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(0),y], null);
 } else {
 throw cljs.core.match.backtrack;
 
 }
-}catch (e24076){if((e24076 instanceof Error)){
-var e__8859__auto__ = e24076;
+}catch (e24490){if((e24490 instanceof Error)){
+var e__8859__auto__ = e24490;
 if((e__8859__auto__ === cljs.core.match.backtrack)){
-try{if(((function (e__8859__auto__,vec__24064,x,y,vec__24065,ssx,ssy){
-return (function (p1__24044_SHARP_){
-return (p1__24044_SHARP_ > (html5game.app.canvas.width - ssx));
-});})(e__8859__auto__,vec__24064,x,y,vec__24065,ssx,ssy))
+try{if(((function (e__8859__auto__,vec__24478,x,y,vec__24479,ssx,ssy){
+return (function (p1__24458_SHARP_){
+return (p1__24458_SHARP_ > (html5game.app.canvas.width - ssx));
+});})(e__8859__auto__,vec__24478,x,y,vec__24479,ssx,ssy))
 .call(null,x)){
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(html5game.app.canvas.width - ssx),y], null);
 } else {
 throw cljs.core.match.backtrack;
 
 }
-}catch (e24077){if((e24077 instanceof Error)){
-var e__8859__auto____$1 = e24077;
+}catch (e24491){if((e24491 instanceof Error)){
+var e__8859__auto____$1 = e24491;
 if((e__8859__auto____$1 === cljs.core.match.backtrack)){
 try{if((y < (0))){
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [x,(0)], null);
@@ -296,92 +296,92 @@ return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMP
 throw cljs.core.match.backtrack;
 
 }
-}catch (e24078){if((e24078 instanceof Error)){
-var e__8859__auto____$2 = e24078;
+}catch (e24492){if((e24492 instanceof Error)){
+var e__8859__auto____$2 = e24492;
 if((e__8859__auto____$2 === cljs.core.match.backtrack)){
-try{if(((function (e__8859__auto____$2,e__8859__auto____$1,e__8859__auto__,vec__24064,x,y,vec__24065,ssx,ssy){
-return (function (p1__24045_SHARP_){
-return (p1__24045_SHARP_ > (html5game.app.canvas.height - ssy));
-});})(e__8859__auto____$2,e__8859__auto____$1,e__8859__auto__,vec__24064,x,y,vec__24065,ssx,ssy))
+try{if(((function (e__8859__auto____$2,e__8859__auto____$1,e__8859__auto__,vec__24478,x,y,vec__24479,ssx,ssy){
+return (function (p1__24459_SHARP_){
+return (p1__24459_SHARP_ > (html5game.app.canvas.height - ssy));
+});})(e__8859__auto____$2,e__8859__auto____$1,e__8859__auto__,vec__24478,x,y,vec__24479,ssx,ssy))
 .call(null,y)){
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [x,(html5game.app.canvas.height - ssy)], null);
 } else {
 throw cljs.core.match.backtrack;
 
 }
-}catch (e24079){if((e24079 instanceof Error)){
-var e__8859__auto____$3 = e24079;
+}catch (e24493){if((e24493 instanceof Error)){
+var e__8859__auto____$3 = e24493;
 if((e__8859__auto____$3 === cljs.core.match.backtrack)){
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [x,y], null);
 } else {
 throw e__8859__auto____$3;
 }
 } else {
-throw e24079;
+throw e24493;
 
 }
 }} else {
 throw e__8859__auto____$2;
 }
 } else {
-throw e24078;
+throw e24492;
 
 }
 }} else {
 throw e__8859__auto____$1;
 }
 } else {
-throw e24077;
+throw e24491;
 
 }
 }} else {
 throw e__8859__auto__;
 }
 } else {
-throw e24076;
+throw e24490;
 
 }
 }});
 html5game.app.handle_input = (function handle_input(state){
-var vec__24081 = cljs.core.get_in.call(null,state,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"player","player",-97687400),new cljs.core.Keyword(null,"pos","pos",-864607220)], null));
-var x1 = cljs.core.nth.call(null,vec__24081,(0),null);
-var y1 = cljs.core.nth.call(null,vec__24081,(1),null);
+var vec__24495 = cljs.core.get_in.call(null,state,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"player","player",-97687400),new cljs.core.Keyword(null,"pos","pos",-864607220)], null));
+var x1 = cljs.core.nth.call(null,vec__24495,(0),null);
+var y1 = cljs.core.nth.call(null,vec__24495,(1),null);
 var is_down_QMARK_ = cljs.core.partial.call(null,html5game.app.is_down_QMARK_,state);
 var x = cljs.core.atom.call(null,x1);
 var y = cljs.core.atom.call(null,y1);
 var dt = new cljs.core.Keyword(null,"dt","dt",-368444759).cljs$core$IFn$_invoke$arity$1(state);
 if(cljs.core.truth_(is_down_QMARK_.call(null,new cljs.core.Keyword(null,"down","down",1565245570)))){
-cljs.core.swap_BANG_.call(null,y,((function (vec__24081,x1,y1,is_down_QMARK_,x,y,dt){
+cljs.core.swap_BANG_.call(null,y,((function (vec__24495,x1,y1,is_down_QMARK_,x,y,dt){
 return (function (){
 return (cljs.core.deref.call(null,y) + (dt * html5game.app.player_speed));
-});})(vec__24081,x1,y1,is_down_QMARK_,x,y,dt))
+});})(vec__24495,x1,y1,is_down_QMARK_,x,y,dt))
 );
 } else {
 }
 
 if(cljs.core.truth_(is_down_QMARK_.call(null,new cljs.core.Keyword(null,"up","up",-269712113)))){
-cljs.core.swap_BANG_.call(null,y,((function (vec__24081,x1,y1,is_down_QMARK_,x,y,dt){
+cljs.core.swap_BANG_.call(null,y,((function (vec__24495,x1,y1,is_down_QMARK_,x,y,dt){
 return (function (){
 return (cljs.core.deref.call(null,y) - (dt * html5game.app.player_speed));
-});})(vec__24081,x1,y1,is_down_QMARK_,x,y,dt))
+});})(vec__24495,x1,y1,is_down_QMARK_,x,y,dt))
 );
 } else {
 }
 
 if(cljs.core.truth_(is_down_QMARK_.call(null,new cljs.core.Keyword(null,"right","right",-452581833)))){
-cljs.core.swap_BANG_.call(null,x,((function (vec__24081,x1,y1,is_down_QMARK_,x,y,dt){
+cljs.core.swap_BANG_.call(null,x,((function (vec__24495,x1,y1,is_down_QMARK_,x,y,dt){
 return (function (){
 return (cljs.core.deref.call(null,x) + (dt * html5game.app.player_speed));
-});})(vec__24081,x1,y1,is_down_QMARK_,x,y,dt))
+});})(vec__24495,x1,y1,is_down_QMARK_,x,y,dt))
 );
 } else {
 }
 
 if(cljs.core.truth_(is_down_QMARK_.call(null,new cljs.core.Keyword(null,"left","left",-399115937)))){
-cljs.core.swap_BANG_.call(null,x,((function (vec__24081,x1,y1,is_down_QMARK_,x,y,dt){
+cljs.core.swap_BANG_.call(null,x,((function (vec__24495,x1,y1,is_down_QMARK_,x,y,dt){
 return (function (){
 return (cljs.core.deref.call(null,x) - (dt * html5game.app.player_speed));
-});})(vec__24081,x1,y1,is_down_QMARK_,x,y,dt))
+});})(vec__24495,x1,y1,is_down_QMARK_,x,y,dt))
 );
 } else {
 }
@@ -401,18 +401,18 @@ var new_index = (new cljs.core.Keyword(null,"index","index",-1531685915).cljs$co
 return cljs.core.assoc.call(null,sprite,new cljs.core.Keyword(null,"index","index",-1531685915),new_index);
 });
 html5game.app.off_screen_QMARK_ = (function off_screen_QMARK_(ent){
-var vec__24083 = new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(ent);
-var x = cljs.core.nth.call(null,vec__24083,(0),null);
-var y = cljs.core.nth.call(null,vec__24083,(1),null);
+var vec__24497 = new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(ent);
+var x = cljs.core.nth.call(null,vec__24497,(0),null);
+var y = cljs.core.nth.call(null,vec__24497,(1),null);
 return ((y < (0))) || ((x < (0))) || ((x > html5game.app.canvas.width)) || ((x > html5game.app.canvas.heigh));
 });
 html5game.app.update_bullet = (function update_bullet(bullet,dt){
 var dir = new cljs.core.Keyword(null,"dir","dir",1734754661).cljs$core$IFn$_invoke$arity$1(bullet);
-var vec__24086 = new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(bullet);
-var x = cljs.core.nth.call(null,vec__24086,(0),null);
-var y = cljs.core.nth.call(null,vec__24086,(1),null);
-var G__24087 = dir;
-switch (G__24087) {
+var vec__24500 = new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(bullet);
+var x = cljs.core.nth.call(null,vec__24500,(0),null);
+var y = cljs.core.nth.call(null,vec__24500,(1),null);
+var G__24501 = dir;
+switch (G__24501) {
 case "up":
 return cljs.core.assoc.call(null,bullet,new cljs.core.Keyword(null,"pos","pos",-864607220),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [x,(y - (dt * html5game.app.bullet_speed))], null));
 
@@ -427,19 +427,19 @@ return cljs.core.assoc.call(null,bullet,new cljs.core.Keyword(null,"pos","pos",-
 }
 });
 html5game.app.update_bullets = (function update_bullets(bullets,dt){
-return cljs.core.remove.call(null,html5game.app.off_screen_QMARK_,cljs.core.map.call(null,(function (p1__24089_SHARP_){
-return html5game.app.update_bullet.call(null,p1__24089_SHARP_,dt);
+return cljs.core.remove.call(null,html5game.app.off_screen_QMARK_,cljs.core.map.call(null,(function (p1__24503_SHARP_){
+return html5game.app.update_bullet.call(null,p1__24503_SHARP_,dt);
 }),bullets));
 });
 html5game.app.update_enemy = (function update_enemy(enemy,dt){
-var vec__24091 = new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(enemy);
-var x = cljs.core.nth.call(null,vec__24091,(0),null);
-var y = cljs.core.nth.call(null,vec__24091,(1),null);
+var vec__24505 = new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(enemy);
+var x = cljs.core.nth.call(null,vec__24505,(0),null);
+var y = cljs.core.nth.call(null,vec__24505,(1),null);
 return cljs.core.update_in.call(null,cljs.core.assoc.call(null,enemy,new cljs.core.Keyword(null,"pos","pos",-864607220),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(x - (dt * html5game.app.enemy_speed)),y], null)),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"sprite","sprite",172516848)], null),html5game.app.update_sprite,dt);
 });
 html5game.app.update_enemies = (function update_enemies(enemies,dt){
-return cljs.core.remove.call(null,html5game.app.off_screen_QMARK_,cljs.core.map.call(null,(function (p1__24092_SHARP_){
-return html5game.app.update_enemy.call(null,p1__24092_SHARP_,dt);
+return cljs.core.remove.call(null,html5game.app.off_screen_QMARK_,cljs.core.map.call(null,(function (p1__24506_SHARP_){
+return html5game.app.update_enemy.call(null,p1__24506_SHARP_,dt);
 }),enemies));
 });
 /**
@@ -456,8 +456,8 @@ return and__3752__auto__;
 })());
 });
 html5game.app.update_explosions = (function update_explosions(explosions,dt){
-return cljs.core.filter.call(null,html5game.app.explosion_done_QMARK_,cljs.core.map.call(null,(function (p1__24093_SHARP_){
-return cljs.core.update.call(null,p1__24093_SHARP_,new cljs.core.Keyword(null,"sprite","sprite",172516848),html5game.app.update_sprite,dt);
+return cljs.core.filter.call(null,html5game.app.explosion_done_QMARK_,cljs.core.map.call(null,(function (p1__24507_SHARP_){
+return cljs.core.update.call(null,p1__24507_SHARP_,new cljs.core.Keyword(null,"sprite","sprite",172516848),html5game.app.update_sprite,dt);
 }),explosions));
 });
 html5game.app.update_entities = (function update_entities(state){
@@ -468,93 +468,93 @@ html5game.app.collides = (function collides(x,y,r,b,x2,y2,r2,b2){
 return !(((r <= x2)) || ((x > r2)) || ((b <= y2)) || ((y > b2)));
 });
 html5game.app.box_collides = (function box_collides(pos1,size1,pos2,size2){
-var vec__24098 = pos1;
-var p1x = cljs.core.nth.call(null,vec__24098,(0),null);
-var p1y = cljs.core.nth.call(null,vec__24098,(1),null);
-var vec__24099 = size1;
-var s1x = cljs.core.nth.call(null,vec__24099,(0),null);
-var s1y = cljs.core.nth.call(null,vec__24099,(1),null);
-var vec__24100 = pos2;
-var p2x = cljs.core.nth.call(null,vec__24100,(0),null);
-var p2y = cljs.core.nth.call(null,vec__24100,(1),null);
-var vec__24101 = size2;
-var s2x = cljs.core.nth.call(null,vec__24101,(0),null);
-var s2y = cljs.core.nth.call(null,vec__24101,(1),null);
+var vec__24512 = pos1;
+var p1x = cljs.core.nth.call(null,vec__24512,(0),null);
+var p1y = cljs.core.nth.call(null,vec__24512,(1),null);
+var vec__24513 = size1;
+var s1x = cljs.core.nth.call(null,vec__24513,(0),null);
+var s1y = cljs.core.nth.call(null,vec__24513,(1),null);
+var vec__24514 = pos2;
+var p2x = cljs.core.nth.call(null,vec__24514,(0),null);
+var p2y = cljs.core.nth.call(null,vec__24514,(1),null);
+var vec__24515 = size2;
+var s2x = cljs.core.nth.call(null,vec__24515,(0),null);
+var s2y = cljs.core.nth.call(null,vec__24515,(1),null);
 return html5game.app.collides.call(null,p1x,p1y,(p1x + s1x),(p1y + s1y),p2x,p2y,(p2x + s2x),(p2y + s2y));
 });
 html5game.app.check_collisions = (function check_collisions(state){
 var e = cljs.core.atom.call(null);
 var b = cljs.core.atom.call(null);
-var seq__24116_24128 = cljs.core.seq.call(null,new cljs.core.Keyword(null,"enemies","enemies",2114285722).cljs$core$IFn$_invoke$arity$1(state));
-var chunk__24121_24129 = null;
-var count__24122_24130 = (0);
-var i__24123_24131 = (0);
+var seq__24530_24542 = cljs.core.seq.call(null,new cljs.core.Keyword(null,"enemies","enemies",2114285722).cljs$core$IFn$_invoke$arity$1(state));
+var chunk__24535_24543 = null;
+var count__24536_24544 = (0);
+var i__24537_24545 = (0);
 while(true){
-if((i__24123_24131 < count__24122_24130)){
-var enemy_24132 = cljs.core._nth.call(null,chunk__24121_24129,i__24123_24131);
-var seq__24124_24133 = cljs.core.seq.call(null,new cljs.core.Keyword(null,"bullets","bullets",1734809024).cljs$core$IFn$_invoke$arity$1(state));
-var chunk__24125_24134 = null;
-var count__24126_24135 = (0);
-var i__24127_24136 = (0);
+if((i__24537_24545 < count__24536_24544)){
+var enemy_24546 = cljs.core._nth.call(null,chunk__24535_24543,i__24537_24545);
+var seq__24538_24547 = cljs.core.seq.call(null,new cljs.core.Keyword(null,"bullets","bullets",1734809024).cljs$core$IFn$_invoke$arity$1(state));
+var chunk__24539_24548 = null;
+var count__24540_24549 = (0);
+var i__24541_24550 = (0);
 while(true){
-if((i__24127_24136 < count__24126_24135)){
-var bullet_24137 = cljs.core._nth.call(null,chunk__24125_24134,i__24127_24136);
-var e_pos_24138 = new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(enemy_24132);
-var e_sprite_size_24139 = cljs.core.get_in.call(null,enemy_24132,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"sprite","sprite",172516848),new cljs.core.Keyword(null,"size","size",1098693007)], null));
-var b_pos_24140 = new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(bullet_24137);
-var b_sprite_size_24141 = cljs.core.get_in.call(null,enemy_24132,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"sprite","sprite",172516848),new cljs.core.Keyword(null,"size","size",1098693007)], null));
-if(html5game.app.box_collides.call(null,e_pos_24138,e_sprite_size_24139,b_pos_24140,b_sprite_size_24141)){
-cljs.core.reset_BANG_.call(null,e,e_pos_24138);
+if((i__24541_24550 < count__24540_24549)){
+var bullet_24551 = cljs.core._nth.call(null,chunk__24539_24548,i__24541_24550);
+var e_pos_24552 = new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(enemy_24546);
+var e_sprite_size_24553 = cljs.core.get_in.call(null,enemy_24546,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"sprite","sprite",172516848),new cljs.core.Keyword(null,"size","size",1098693007)], null));
+var b_pos_24554 = new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(bullet_24551);
+var b_sprite_size_24555 = cljs.core.get_in.call(null,enemy_24546,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"sprite","sprite",172516848),new cljs.core.Keyword(null,"size","size",1098693007)], null));
+if(html5game.app.box_collides.call(null,e_pos_24552,e_sprite_size_24553,b_pos_24554,b_sprite_size_24555)){
+cljs.core.reset_BANG_.call(null,e,e_pos_24552);
 
-cljs.core.reset_BANG_.call(null,b,b_pos_24140);
+cljs.core.reset_BANG_.call(null,b,b_pos_24554);
 } else {
 }
 
-var G__24142 = seq__24124_24133;
-var G__24143 = chunk__24125_24134;
-var G__24144 = count__24126_24135;
-var G__24145 = (i__24127_24136 + (1));
-seq__24124_24133 = G__24142;
-chunk__24125_24134 = G__24143;
-count__24126_24135 = G__24144;
-i__24127_24136 = G__24145;
+var G__24556 = seq__24538_24547;
+var G__24557 = chunk__24539_24548;
+var G__24558 = count__24540_24549;
+var G__24559 = (i__24541_24550 + (1));
+seq__24538_24547 = G__24556;
+chunk__24539_24548 = G__24557;
+count__24540_24549 = G__24558;
+i__24541_24550 = G__24559;
 continue;
 } else {
-var temp__4425__auto___24146 = cljs.core.seq.call(null,seq__24124_24133);
-if(temp__4425__auto___24146){
-var seq__24124_24147__$1 = temp__4425__auto___24146;
-if(cljs.core.chunked_seq_QMARK_.call(null,seq__24124_24147__$1)){
-var c__4551__auto___24148 = cljs.core.chunk_first.call(null,seq__24124_24147__$1);
-var G__24149 = cljs.core.chunk_rest.call(null,seq__24124_24147__$1);
-var G__24150 = c__4551__auto___24148;
-var G__24151 = cljs.core.count.call(null,c__4551__auto___24148);
-var G__24152 = (0);
-seq__24124_24133 = G__24149;
-chunk__24125_24134 = G__24150;
-count__24126_24135 = G__24151;
-i__24127_24136 = G__24152;
+var temp__4425__auto___24560 = cljs.core.seq.call(null,seq__24538_24547);
+if(temp__4425__auto___24560){
+var seq__24538_24561__$1 = temp__4425__auto___24560;
+if(cljs.core.chunked_seq_QMARK_.call(null,seq__24538_24561__$1)){
+var c__4551__auto___24562 = cljs.core.chunk_first.call(null,seq__24538_24561__$1);
+var G__24563 = cljs.core.chunk_rest.call(null,seq__24538_24561__$1);
+var G__24564 = c__4551__auto___24562;
+var G__24565 = cljs.core.count.call(null,c__4551__auto___24562);
+var G__24566 = (0);
+seq__24538_24547 = G__24563;
+chunk__24539_24548 = G__24564;
+count__24540_24549 = G__24565;
+i__24541_24550 = G__24566;
 continue;
 } else {
-var bullet_24153 = cljs.core.first.call(null,seq__24124_24147__$1);
-var e_pos_24154 = new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(enemy_24132);
-var e_sprite_size_24155 = cljs.core.get_in.call(null,enemy_24132,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"sprite","sprite",172516848),new cljs.core.Keyword(null,"size","size",1098693007)], null));
-var b_pos_24156 = new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(bullet_24153);
-var b_sprite_size_24157 = cljs.core.get_in.call(null,enemy_24132,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"sprite","sprite",172516848),new cljs.core.Keyword(null,"size","size",1098693007)], null));
-if(html5game.app.box_collides.call(null,e_pos_24154,e_sprite_size_24155,b_pos_24156,b_sprite_size_24157)){
-cljs.core.reset_BANG_.call(null,e,e_pos_24154);
+var bullet_24567 = cljs.core.first.call(null,seq__24538_24561__$1);
+var e_pos_24568 = new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(enemy_24546);
+var e_sprite_size_24569 = cljs.core.get_in.call(null,enemy_24546,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"sprite","sprite",172516848),new cljs.core.Keyword(null,"size","size",1098693007)], null));
+var b_pos_24570 = new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(bullet_24567);
+var b_sprite_size_24571 = cljs.core.get_in.call(null,enemy_24546,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"sprite","sprite",172516848),new cljs.core.Keyword(null,"size","size",1098693007)], null));
+if(html5game.app.box_collides.call(null,e_pos_24568,e_sprite_size_24569,b_pos_24570,b_sprite_size_24571)){
+cljs.core.reset_BANG_.call(null,e,e_pos_24568);
 
-cljs.core.reset_BANG_.call(null,b,b_pos_24156);
+cljs.core.reset_BANG_.call(null,b,b_pos_24570);
 } else {
 }
 
-var G__24158 = cljs.core.next.call(null,seq__24124_24147__$1);
-var G__24159 = null;
-var G__24160 = (0);
-var G__24161 = (0);
-seq__24124_24133 = G__24158;
-chunk__24125_24134 = G__24159;
-count__24126_24135 = G__24160;
-i__24127_24136 = G__24161;
+var G__24572 = cljs.core.next.call(null,seq__24538_24561__$1);
+var G__24573 = null;
+var G__24574 = (0);
+var G__24575 = (0);
+seq__24538_24547 = G__24572;
+chunk__24539_24548 = G__24573;
+count__24540_24549 = G__24574;
+i__24541_24550 = G__24575;
 continue;
 }
 } else {
@@ -563,95 +563,95 @@ continue;
 break;
 }
 
-var G__24162 = seq__24116_24128;
-var G__24163 = chunk__24121_24129;
-var G__24164 = count__24122_24130;
-var G__24165 = (i__24123_24131 + (1));
-seq__24116_24128 = G__24162;
-chunk__24121_24129 = G__24163;
-count__24122_24130 = G__24164;
-i__24123_24131 = G__24165;
+var G__24576 = seq__24530_24542;
+var G__24577 = chunk__24535_24543;
+var G__24578 = count__24536_24544;
+var G__24579 = (i__24537_24545 + (1));
+seq__24530_24542 = G__24576;
+chunk__24535_24543 = G__24577;
+count__24536_24544 = G__24578;
+i__24537_24545 = G__24579;
 continue;
 } else {
-var temp__4425__auto___24166 = cljs.core.seq.call(null,seq__24116_24128);
-if(temp__4425__auto___24166){
-var seq__24116_24167__$1 = temp__4425__auto___24166;
-if(cljs.core.chunked_seq_QMARK_.call(null,seq__24116_24167__$1)){
-var c__4551__auto___24168 = cljs.core.chunk_first.call(null,seq__24116_24167__$1);
-var G__24169 = cljs.core.chunk_rest.call(null,seq__24116_24167__$1);
-var G__24170 = c__4551__auto___24168;
-var G__24171 = cljs.core.count.call(null,c__4551__auto___24168);
-var G__24172 = (0);
-seq__24116_24128 = G__24169;
-chunk__24121_24129 = G__24170;
-count__24122_24130 = G__24171;
-i__24123_24131 = G__24172;
+var temp__4425__auto___24580 = cljs.core.seq.call(null,seq__24530_24542);
+if(temp__4425__auto___24580){
+var seq__24530_24581__$1 = temp__4425__auto___24580;
+if(cljs.core.chunked_seq_QMARK_.call(null,seq__24530_24581__$1)){
+var c__4551__auto___24582 = cljs.core.chunk_first.call(null,seq__24530_24581__$1);
+var G__24583 = cljs.core.chunk_rest.call(null,seq__24530_24581__$1);
+var G__24584 = c__4551__auto___24582;
+var G__24585 = cljs.core.count.call(null,c__4551__auto___24582);
+var G__24586 = (0);
+seq__24530_24542 = G__24583;
+chunk__24535_24543 = G__24584;
+count__24536_24544 = G__24585;
+i__24537_24545 = G__24586;
 continue;
 } else {
-var enemy_24173 = cljs.core.first.call(null,seq__24116_24167__$1);
-var seq__24117_24174 = cljs.core.seq.call(null,new cljs.core.Keyword(null,"bullets","bullets",1734809024).cljs$core$IFn$_invoke$arity$1(state));
-var chunk__24118_24175 = null;
-var count__24119_24176 = (0);
-var i__24120_24177 = (0);
+var enemy_24587 = cljs.core.first.call(null,seq__24530_24581__$1);
+var seq__24531_24588 = cljs.core.seq.call(null,new cljs.core.Keyword(null,"bullets","bullets",1734809024).cljs$core$IFn$_invoke$arity$1(state));
+var chunk__24532_24589 = null;
+var count__24533_24590 = (0);
+var i__24534_24591 = (0);
 while(true){
-if((i__24120_24177 < count__24119_24176)){
-var bullet_24178 = cljs.core._nth.call(null,chunk__24118_24175,i__24120_24177);
-var e_pos_24179 = new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(enemy_24173);
-var e_sprite_size_24180 = cljs.core.get_in.call(null,enemy_24173,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"sprite","sprite",172516848),new cljs.core.Keyword(null,"size","size",1098693007)], null));
-var b_pos_24181 = new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(bullet_24178);
-var b_sprite_size_24182 = cljs.core.get_in.call(null,enemy_24173,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"sprite","sprite",172516848),new cljs.core.Keyword(null,"size","size",1098693007)], null));
-if(html5game.app.box_collides.call(null,e_pos_24179,e_sprite_size_24180,b_pos_24181,b_sprite_size_24182)){
-cljs.core.reset_BANG_.call(null,e,e_pos_24179);
+if((i__24534_24591 < count__24533_24590)){
+var bullet_24592 = cljs.core._nth.call(null,chunk__24532_24589,i__24534_24591);
+var e_pos_24593 = new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(enemy_24587);
+var e_sprite_size_24594 = cljs.core.get_in.call(null,enemy_24587,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"sprite","sprite",172516848),new cljs.core.Keyword(null,"size","size",1098693007)], null));
+var b_pos_24595 = new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(bullet_24592);
+var b_sprite_size_24596 = cljs.core.get_in.call(null,enemy_24587,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"sprite","sprite",172516848),new cljs.core.Keyword(null,"size","size",1098693007)], null));
+if(html5game.app.box_collides.call(null,e_pos_24593,e_sprite_size_24594,b_pos_24595,b_sprite_size_24596)){
+cljs.core.reset_BANG_.call(null,e,e_pos_24593);
 
-cljs.core.reset_BANG_.call(null,b,b_pos_24181);
+cljs.core.reset_BANG_.call(null,b,b_pos_24595);
 } else {
 }
 
-var G__24183 = seq__24117_24174;
-var G__24184 = chunk__24118_24175;
-var G__24185 = count__24119_24176;
-var G__24186 = (i__24120_24177 + (1));
-seq__24117_24174 = G__24183;
-chunk__24118_24175 = G__24184;
-count__24119_24176 = G__24185;
-i__24120_24177 = G__24186;
+var G__24597 = seq__24531_24588;
+var G__24598 = chunk__24532_24589;
+var G__24599 = count__24533_24590;
+var G__24600 = (i__24534_24591 + (1));
+seq__24531_24588 = G__24597;
+chunk__24532_24589 = G__24598;
+count__24533_24590 = G__24599;
+i__24534_24591 = G__24600;
 continue;
 } else {
-var temp__4425__auto___24187__$1 = cljs.core.seq.call(null,seq__24117_24174);
-if(temp__4425__auto___24187__$1){
-var seq__24117_24188__$1 = temp__4425__auto___24187__$1;
-if(cljs.core.chunked_seq_QMARK_.call(null,seq__24117_24188__$1)){
-var c__4551__auto___24189 = cljs.core.chunk_first.call(null,seq__24117_24188__$1);
-var G__24190 = cljs.core.chunk_rest.call(null,seq__24117_24188__$1);
-var G__24191 = c__4551__auto___24189;
-var G__24192 = cljs.core.count.call(null,c__4551__auto___24189);
-var G__24193 = (0);
-seq__24117_24174 = G__24190;
-chunk__24118_24175 = G__24191;
-count__24119_24176 = G__24192;
-i__24120_24177 = G__24193;
+var temp__4425__auto___24601__$1 = cljs.core.seq.call(null,seq__24531_24588);
+if(temp__4425__auto___24601__$1){
+var seq__24531_24602__$1 = temp__4425__auto___24601__$1;
+if(cljs.core.chunked_seq_QMARK_.call(null,seq__24531_24602__$1)){
+var c__4551__auto___24603 = cljs.core.chunk_first.call(null,seq__24531_24602__$1);
+var G__24604 = cljs.core.chunk_rest.call(null,seq__24531_24602__$1);
+var G__24605 = c__4551__auto___24603;
+var G__24606 = cljs.core.count.call(null,c__4551__auto___24603);
+var G__24607 = (0);
+seq__24531_24588 = G__24604;
+chunk__24532_24589 = G__24605;
+count__24533_24590 = G__24606;
+i__24534_24591 = G__24607;
 continue;
 } else {
-var bullet_24194 = cljs.core.first.call(null,seq__24117_24188__$1);
-var e_pos_24195 = new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(enemy_24173);
-var e_sprite_size_24196 = cljs.core.get_in.call(null,enemy_24173,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"sprite","sprite",172516848),new cljs.core.Keyword(null,"size","size",1098693007)], null));
-var b_pos_24197 = new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(bullet_24194);
-var b_sprite_size_24198 = cljs.core.get_in.call(null,enemy_24173,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"sprite","sprite",172516848),new cljs.core.Keyword(null,"size","size",1098693007)], null));
-if(html5game.app.box_collides.call(null,e_pos_24195,e_sprite_size_24196,b_pos_24197,b_sprite_size_24198)){
-cljs.core.reset_BANG_.call(null,e,e_pos_24195);
+var bullet_24608 = cljs.core.first.call(null,seq__24531_24602__$1);
+var e_pos_24609 = new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(enemy_24587);
+var e_sprite_size_24610 = cljs.core.get_in.call(null,enemy_24587,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"sprite","sprite",172516848),new cljs.core.Keyword(null,"size","size",1098693007)], null));
+var b_pos_24611 = new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(bullet_24608);
+var b_sprite_size_24612 = cljs.core.get_in.call(null,enemy_24587,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"sprite","sprite",172516848),new cljs.core.Keyword(null,"size","size",1098693007)], null));
+if(html5game.app.box_collides.call(null,e_pos_24609,e_sprite_size_24610,b_pos_24611,b_sprite_size_24612)){
+cljs.core.reset_BANG_.call(null,e,e_pos_24609);
 
-cljs.core.reset_BANG_.call(null,b,b_pos_24197);
+cljs.core.reset_BANG_.call(null,b,b_pos_24611);
 } else {
 }
 
-var G__24199 = cljs.core.next.call(null,seq__24117_24188__$1);
-var G__24200 = null;
-var G__24201 = (0);
-var G__24202 = (0);
-seq__24117_24174 = G__24199;
-chunk__24118_24175 = G__24200;
-count__24119_24176 = G__24201;
-i__24120_24177 = G__24202;
+var G__24613 = cljs.core.next.call(null,seq__24531_24602__$1);
+var G__24614 = null;
+var G__24615 = (0);
+var G__24616 = (0);
+seq__24531_24588 = G__24613;
+chunk__24532_24589 = G__24614;
+count__24533_24590 = G__24615;
+i__24534_24591 = G__24616;
 continue;
 }
 } else {
@@ -660,14 +660,14 @@ continue;
 break;
 }
 
-var G__24203 = cljs.core.next.call(null,seq__24116_24167__$1);
-var G__24204 = null;
-var G__24205 = (0);
-var G__24206 = (0);
-seq__24116_24128 = G__24203;
-chunk__24121_24129 = G__24204;
-count__24122_24130 = G__24205;
-i__24123_24131 = G__24206;
+var G__24617 = cljs.core.next.call(null,seq__24530_24581__$1);
+var G__24618 = null;
+var G__24619 = (0);
+var G__24620 = (0);
+seq__24530_24542 = G__24617;
+chunk__24535_24543 = G__24618;
+count__24536_24544 = G__24619;
+i__24537_24545 = G__24620;
 continue;
 }
 } else {
@@ -682,16 +682,16 @@ return state;
 return cljs.core.update.call(null,cljs.core.update.call(null,cljs.core.update.call(null,cljs.core.update.call(null,state,new cljs.core.Keyword(null,"score","score",-1963588780),cljs.core._PLUS_,(100)),new cljs.core.Keyword(null,"enemies","enemies",2114285722),((function (e,b){
 return (function (enemies){
 return cljs.core.filter.call(null,((function (e,b){
-return (function (p1__24102_SHARP_){
-return cljs.core.not_EQ_.call(null,cljs.core.deref.call(null,e),new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(p1__24102_SHARP_));
+return (function (p1__24516_SHARP_){
+return cljs.core.not_EQ_.call(null,cljs.core.deref.call(null,e),new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(p1__24516_SHARP_));
 });})(e,b))
 ,enemies);
 });})(e,b))
 ),new cljs.core.Keyword(null,"bullets","bullets",1734809024),((function (e,b){
 return (function (bullets){
 return cljs.core.filter.call(null,((function (e,b){
-return (function (p1__24103_SHARP_){
-return cljs.core.not_EQ_.call(null,cljs.core.deref.call(null,b),new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(p1__24103_SHARP_));
+return (function (p1__24517_SHARP_){
+return cljs.core.not_EQ_.call(null,cljs.core.deref.call(null,b),new cljs.core.Keyword(null,"pos","pos",-864607220).cljs$core$IFn$_invoke$arity$1(p1__24517_SHARP_));
 });})(e,b))
 ,bullets);
 });})(e,b))
@@ -714,8 +714,8 @@ var game_over_QMARK_ = cljs.core.reduce.call(null,tf_QMARK_,false,new cljs.core.
 return cljs.core.assoc.call(null,state,new cljs.core.Keyword(null,"game-over?","game-over?",432859304),game_over_QMARK_);
 });
 html5game.app.update_state = (function update_state(state){
-var update_fns = cljs.core.comp.call(null,(function (p1__24207_SHARP_){
-return cljs.core.update.call(null,p1__24207_SHARP_,new cljs.core.Keyword(null,"game-time","game-time",-1829009153),cljs.core._PLUS_,new cljs.core.Keyword(null,"dt","dt",-368444759).cljs$core$IFn$_invoke$arity$1(p1__24207_SHARP_));
+var update_fns = cljs.core.comp.call(null,(function (p1__24621_SHARP_){
+return cljs.core.update.call(null,p1__24621_SHARP_,new cljs.core.Keyword(null,"game-time","game-time",-1829009153),cljs.core._PLUS_,new cljs.core.Keyword(null,"dt","dt",-368444759).cljs$core$IFn$_invoke$arity$1(p1__24621_SHARP_));
 }),html5game.app.handle_input,html5game.app.update_entities,html5game.app.add_enemies,html5game.app.check_collisions,html5game.app.check_game_over);
 cljs.core.swap_BANG_.call(null,state,update_fns);
 
